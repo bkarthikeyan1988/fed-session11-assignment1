@@ -1,24 +1,32 @@
 <html>
 <head>
-	<title>Session 10 Assignment 2</title>
+	<title>Session 11 Assignment 1</title>
 	<meta charset="UTF-8" />
 	<script src="js/angular.min.js" type="text/javascript">
 	</script>
 	<script type="text/javascript">
-		var myApp = angular.module('myApp', []);
-		myApp.controller('MyController', function ($scope) {
-			$scope.firstProg = "Hello World";
+		angular.module('fedScopeDirective', [])
+		.controller('Controller', ['$scope', function($scope) {
+		  $scope.employee = {
+		    name: 'Karthikeyan',
+		    employeeId: 'E0786',
+		    designation: 'Front End Developer'
+		  };
+		}])
+		.directive('employeeInfo', function() {
+		  return {
+		    template: '<table class="employee-table" cellspacing="0" cellpadding="0"><thead><th>Name</th><th>Address</th><th>Designation</th></thead><tr><td>{{employee.name}}</td><td>{{employee.employeeId}}</td><td>{{employee.designation}}</td></tr></table>'
+		  };
 		});
 	</script>
 	<!-- Angular Script Block Ends -->
 	<link rel="stylesheet" href="css/style.css">
 	<!-- CSS Block Ends -->
 </head>
-<body>
-	<div ng-app="myApp">
-		<div ng-controller="MyController">
-			<p>{{firstProg}}</p>
-		</div>
-	 </div>
+<body ng-app="fedScopeDirective">
+	<h2>The Scope value inside the view with ng-model directives.</h2>
+	<div ng-controller="Controller">
+	  <div employee-info></div>
+	</div>
 </body>
 </html>

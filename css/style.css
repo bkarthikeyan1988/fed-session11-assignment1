@@ -2,3 +2,10 @@ body {
 	font: normal 12px arial;
 	color: #333;
 }
+.employee-table {
+	margin: 10px 0;
+	border: 1px solid #333;
+}
+.employee-table thead th {border-bottom: 1px solid #333;}
+.employee-table td,.employee-table th {padding: 15px 15px;border-right: 1px solid #333;}
+.employee-table td:last-child,.employee-table th:last-child {border-right:0;}
